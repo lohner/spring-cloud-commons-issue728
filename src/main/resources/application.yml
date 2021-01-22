@@ -1,0 +1,25 @@
+server:
+  port: 8888
+  address: 127.0.0.1
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            google: 
+              - uri: https://google.com
+    loadbalancer:
+      ribbon:
+        enabled: false
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
+        - info
+        - shutdown
